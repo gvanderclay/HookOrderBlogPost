@@ -1,8 +1,10 @@
 import * as React from "react";
 import "./App.css";
-import { BadSelect } from "./Select";
+import { BadSelect } from "./BadSelect";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
+import { SkipSelect } from "./SkipSelect";
+import { LazySelect } from "./LazySelect";
 
 const client = new ApolloClient({
   uri: "https://graphql-pokemon.now.sh",
@@ -11,7 +13,12 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <BadSelect />
+      <div>
+        <SkipSelect />
+      </div>
+      <div>
+        <LazySelect />
+      </div>
     </ApolloProvider>
   );
 }
